@@ -13,7 +13,7 @@ public class CharacterControls : MonoBehaviour {
 	public float jumpHeight = 4.0f;
 	public float maxFallSpeed = 20.0f;
 	public float rotateSpeed = 25f; //Speed the player rotate
-	public float bulletSpeed = 100.0f;	// 弾速
+	public float bulletSpeed = 2000.0f;	// 弾速
 	private Vector3 moveDir;
 	public GameObject cam;
 	private Rigidbody rb;
@@ -154,12 +154,13 @@ public class CharacterControls : MonoBehaviour {
 		}
 
 		// 弾の発射処理
-		if (Input.GetKeyDown(KeyCode.Space))
+		if (Input.GetMouseButtonDown(0))
 		{
 			Vector3 bulletPos = this.transform.position + this.transform.forward * 1.5f;	// 前方から弾を発射
 			GameObject bullet = Instantiate(BulletPrefab, bulletPos, Quaternion.identity);
-			
-			bullet.GetComponent<BulletController>().Shoot(this.transform.forward * bulletSpeed);
+			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+			Vector3 worldDir = ray.direction;
+			bullet.GetComponent<BulletController>().Shoot(worldDir * bulletSpeed);
 		}
 
 		//// ゴールした場合、パーティクルを表示
