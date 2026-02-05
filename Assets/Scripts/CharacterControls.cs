@@ -26,7 +26,7 @@ public class CharacterControls : MonoBehaviour {
 	private float pushForce;
 	private Vector3 pushDir;
 
-	//public Vector3 checkPoint;
+	public Vector3 checkPoint;
 	private bool slide = false;
 	public GameObject BulletPrefab;
 	public GameObject player;
@@ -50,7 +50,7 @@ public class CharacterControls : MonoBehaviour {
 		rb.freezeRotation = true;
 		rb.useGravity = false;
 
-		//checkPoint = transform.position;
+		checkPoint = transform.position;
 		Cursor.visible = false;
 	}
 	
@@ -190,7 +190,7 @@ public class CharacterControls : MonoBehaviour {
 
 	public void LoadCheckPoint()
 	{
-		//transform.position = checkPoint;
+		transform.position = checkPoint;
 	}
 
 	private IEnumerator Decrease(float value, float duration)
