@@ -13,6 +13,7 @@ public class CharacterControls : MonoBehaviour {
 	public float jumpHeight = 4.0f;
 	public float maxFallSpeed = 20.0f;
 	public float rotateSpeed = 25f; //Speed the player rotate
+	public float bulletSpeed = 100.0f;	// 弾速
 	private Vector3 moveDir;
 	public GameObject cam;
 	private Rigidbody rb;
@@ -26,7 +27,9 @@ public class CharacterControls : MonoBehaviour {
 	private Vector3 pushDir;
 
 	//public Vector3 checkPoint;
-	//private bool slide = false;
+	private bool slide = false;
+	public GameObject BulletPrefab;
+	public GameObject player;
 
 	//public GoalManager goalmanager;
 	//private bool bGoal = false;
@@ -84,26 +87,26 @@ public class CharacterControls : MonoBehaviour {
 				velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
 				velocityChange.y = 0;
 
-				/*if (!slide)
+				if (!slide)
 				{
 					if (Mathf.Abs(rb.velocity.magnitude) < speed * 1.0f)
 						rb.AddForce(velocityChange, ForceMode.VelocityChange);
 				}
-				else */if (Mathf.Abs(rb.velocity.magnitude) < speed * 1.0f)
+				else if (Mathf.Abs(rb.velocity.magnitude) < speed * 1.0f)
 				{
 					rb.AddForce(moveDir * 0.15f, ForceMode.VelocityChange);
 					//Debug.Log(rb.velocity.magnitude);
 				}
 
-				// Jump
-				if (IsGrounded() && Input.GetButton("Jump"))
-				{
-					rb.velocity = new Vector3(velocity.x, CalculateJumpVerticalSpeed(), velocity.z);
-				}
+				//// Jump
+				//if (IsGrounded() && Input.GetButton("Jump"))
+				//{
+				//	rb.velocity = new Vector3(velocity.x, CalculateJumpVerticalSpeed(), velocity.z);
+				//}
 			}
 			else
 			{
-				/*if (!slide)
+				if (!slide)
 				{
 					Vector3 targetVelocity = new Vector3(moveDir.x * airVelocity, rb.velocity.y, moveDir.z * airVelocity);
 					Vector3 velocity = rb.velocity;
@@ -114,7 +117,7 @@ public class CharacterControls : MonoBehaviour {
 					if (velocity.y < -maxFallSpeed)
 						rb.velocity = new Vector3(velocity.x, -maxFallSpeed, velocity.z);
 				}
-				else */if (Mathf.Abs(rb.velocity.magnitude) < speed * 1.0f)
+				else if (Mathf.Abs(rb.velocity.magnitude) < speed * 1.0f)
 				{
 					rb.AddForce(moveDir * 0.15f, ForceMode.VelocityChange);
 				}
@@ -142,12 +145,21 @@ public class CharacterControls : MonoBehaviour {
 		{
 			if (hit.transform.tag == "Slide")
 			{
-				//slide = true;
+				slide = true;
 			}
 			else
 			{
-				//slide = false;
+				slide = false;
 			}
+		}
+
+		// 弾の発射処理
+		if (Input.GetKeyDown(KeyCode.Space))
+		{
+			Vector3 bulletPos = this.transform.position + this.transform.forward * 1.5f;	// 前方から弾を発射
+			GameObject bullet = Instantiate(BulletPrefab, bulletPos, Quaternion.identity);
+			
+			bullet.GetComponent<BulletController>().Shoot(this.transform.forward * bulletSpeed);
 		}
 
 		//// ゴールした場合、パーティクルを表示
@@ -193,12 +205,12 @@ public class CharacterControls : MonoBehaviour {
 		for (float t = 0; t < duration; t += Time.deltaTime)
 		{
 			yield return null;
-			//if (!slide) //Reduce the force if the ground isnt slide
-			//{
-			//	pushForce = pushForce - Time.deltaTime * delta;
-			//	pushForce = pushForce < 0 ? 0 : pushForce;
-			//	//Debug.Log(pushForce);
-			//}
+			if (!slide) //Reduce the force if the ground isnt slide
+			{
+				pushForce = pushForce - Time.deltaTime * delta;
+				pushForce = pushForce < 0 ? 0 : pushForce;
+				//Debug.Log(pushForce);
+			}
 			rb.AddForce(new Vector3(0, -gravity * GetComponent<Rigidbody>().mass, 0)); //Add gravity
 		}
 

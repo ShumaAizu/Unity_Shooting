@@ -15,14 +15,14 @@ public class BulletGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            GameObject bullet = Instantiate(BulletPrefab);
-
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            Vector3 worldDir = ray.direction;
-            bullet.GetComponent<BulletController>().Shoot(worldDir.normalized * 2000);
-        }
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    GameObject bullet = Instantiate(BulletPrefab);
+        //
+        //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //    Vector3 worldDir = ray.direction;
+        //    bullet.GetComponent<BulletController>().Shoot(worldDir.normalized * 2000);
+        //}
 
         // ESCÉLÅ[Ç≈èIóπ
         if (Input.GetKeyDown(KeyCode.Escape))

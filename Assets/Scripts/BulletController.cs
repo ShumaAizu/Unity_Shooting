@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
+    //public void Shoot(Vector3 dir)
+    //{
+    //    GetComponent<Rigidbody>().AddForce(dir);
+    //}
+
     public void Shoot(Vector3 dir)
     {
         GetComponent<Rigidbody>().AddForce(dir);
