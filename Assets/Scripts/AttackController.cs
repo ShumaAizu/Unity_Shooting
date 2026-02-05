@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AttackController : MonoBehaviour
 {
+    public GameObject AttackColl;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,13 +15,11 @@ public class AttackController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.Translate(new Vector3(0.0f, 0.0f, 5.0f));
-
-        
+        this.transform.Translate(new Vector3(0.0f, 0.0f, 0.25f));
     }
 
     // “–‚½‚Á‚½‚ç
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.tag == "Player")
         {
@@ -28,7 +28,8 @@ public class AttackController : MonoBehaviour
 
         if(other.gameObject.tag == "Object")
         {
-
+            Debug.Log("test");
         }
+        Destroy(gameObject);
     }
 }

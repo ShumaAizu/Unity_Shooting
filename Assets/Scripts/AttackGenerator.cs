@@ -17,9 +17,25 @@ public class AttackGenerator : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.F))
         {
-            GameObject Attack = Instantiate(AttackPrefab, new Vector3(0.0f, 5.0f, 0.0f), Quaternion.identity);
+            int nPattern = Random.Range(1, 4);
+            Vector3 vector = this.transform.position;
+
+            switch (nPattern)
+            {
+                case 1:
+                    vector.x += -3;
+                    break;
+
+                case 2:
+                    
+                    break;
+
+                case 3:
+                    vector.x += 3;
+                    break;
+            }
+
+            Instantiate(AttackPrefab, vector, Quaternion.identity);
         }
-
-
     }
 }
