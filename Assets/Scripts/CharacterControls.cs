@@ -13,7 +13,8 @@ public class CharacterControls : MonoBehaviour {
 	public float jumpHeight = 4.0f;
 	public float maxFallSpeed = 20.0f;
 	public float rotateSpeed = 25f; //Speed the player rotate
-	public float bulletSpeed = 2000.0f;	// 弾速
+	public float bulletSpeed = 2000.0f; // 弾速
+	public float bulletDistance = 10.0f;	// 弾の出現位置
 	private Vector3 moveDir;
 	public GameObject cam;
 	private Rigidbody rb;
@@ -159,7 +160,7 @@ public class CharacterControls : MonoBehaviour {
 
 		if (isGoal == false && Input.GetMouseButtonDown(0))
 		{
-			Vector3 bulletPos = this.transform.position + this.transform.forward * 1.5f;	// 前方から弾を発射
+			Vector3 bulletPos = this.transform.position + this.transform.forward * bulletDistance;	// 前方から弾を発射
 			GameObject bullet = Instantiate(BulletPrefab, bulletPos, Quaternion.identity);
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			Vector3 worldDir = ray.direction;

@@ -10,6 +10,8 @@ public class GoalManager : MonoBehaviour
     public GameObject text;         //ƒeƒLƒXƒg‚ğŠi”[‚·‚é‚½‚ß‚Ì•Ï”
     public int nCounterNextScene;   // Ÿ‚ÌƒV[ƒ“‚Ü‚Å‚Ì‘JˆÚŠÔŠu
     private bool isGoal = false;    //Goal‚µ‚½‚©‚Ç‚¤‚©”»’è‚·‚é
+    public BossController bosscontroller;
+
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +21,9 @@ public class GoalManager : MonoBehaviour
 
     void Update()
     {
+        // “G‚ğ“|‚µ‚½ó‘Ô‚ğæ“¾
+        bool isDefeat = bosscontroller.GetEndBoss();
+
         // ‰æ–Ê‘JˆÚˆ—
         {
             //Goal‚µ‚½Œã‚Å‰æ–Ê‚ğƒNƒŠƒbƒN‚³‚ê‚½‚Æ‚«
@@ -31,16 +36,16 @@ public class GoalManager : MonoBehaviour
                         isGoal = false;     //Goal”»’è‚ğfalse‚É‚·‚é
                         break;
 
-                    case "26_Scene":  // 26_Scene‚Ìê‡
-                        SceneManager.LoadScene("24_Scene");
-                        isGoal = false;     //Goal”»’è‚ğfalse‚É‚·‚é
-                        break;
-
                     default:
                         SceneManager.LoadScene("24_Scene");
                         isGoal = false;     //Goal”»’è‚ğfalse‚É‚·‚é
                         break;
-                }     
+                }
+            }
+            else if (SceneManager.GetActiveScene().name == "26_Scene" && isDefeat == true && Input.GetMouseButton(0))
+            {
+                SceneManager.LoadScene("24_Scene");
+                isGoal = false;     //Goal”»’è‚ğfalse‚É‚·‚é
             }
         }
 
@@ -67,9 +72,9 @@ public class GoalManager : MonoBehaviour
                     text.GetComponent<Text>().text = "TUTORIAL CLEAR";
                     break;
 
-                case "26_Scene":  // 26_Scene‚Ìê‡
-                    text.GetComponent<Text>().text = "GAME CLEAR";
-                    break;
+               // case "26_Scene":  // 26_Scene‚Ìê‡
+               //     text.GetComponent<Text>().text = "GAME CLEAR";
+               //     break;
 
                 default:
                     text.GetComponent<Text>().text = "ERROR\nCLICK TO RETURN";
