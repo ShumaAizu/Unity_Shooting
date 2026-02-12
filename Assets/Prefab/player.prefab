@@ -231,7 +231,7 @@ GameObject:
   - component: {fileID: 1366193777772827175}
   m_Layer: 0
   m_Name: player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -396,6 +396,7 @@ MonoBehaviour:
   maxFallSpeed: 20
   rotateSpeed: 25
   bulletSpeed: 2000
+  bulletDistance: 10
   cam: {fileID: 0}
   checkPoint: {x: 0, y: 0, z: 0}
   BulletPrefab: {fileID: 8926475286777732985, guid: 90187ebafce30834397fc998cc711a97, type: 3}

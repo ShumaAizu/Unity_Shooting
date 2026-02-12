@@ -24,9 +24,10 @@ public class AttackController : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             other.gameObject.GetComponent<CharacterControls>().LoadCheckPoint();
+            Debug.Log("test");
         }
 
-        if(other.gameObject.tag == "Object")
+        if (other.gameObject.tag == "Object")
         {
             Debug.Log("test");
         }
