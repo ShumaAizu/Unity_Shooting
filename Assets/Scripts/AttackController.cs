@@ -33,4 +33,23 @@ public class AttackController : MonoBehaviour
         }
         Destroy(gameObject);
     }
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    //当たってきたオブジェクトの名前がプレイヤーの名前と同じとき
+    //    if (other.name == player.name)
+    //    {
+    //        other.gameObject.GetComponent<CharacterControls>().LoadCheckPoint();
+    //        Debug.Log("test");
+    //    }
+    //}
+
+    void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.tag == "Player")
+        {
+            Debug.Log("test");
+            col.gameObject.GetComponent<CharacterControls>().LoadCheckPoint();
+        }
+    }
 }

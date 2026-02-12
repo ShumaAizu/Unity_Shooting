@@ -7,6 +7,8 @@ public class BossController : MonoBehaviour
     private bool isEndBoss = false;
     public GameObject text;         //テキストを格納するための変数
 
+    private static int nCntCollisionBoss = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +25,15 @@ public class BossController : MonoBehaviour
     {
         if (other.gameObject.tag == "EndObject")
         {
-            isEndBoss = true;
+            nCntCollisionBoss++;
+
+            Destroy(other.gameObject);
+
+            if(nCntCollisionBoss >= 2)
+            {
+                isEndBoss = true;
+            }
+
             //text.GetComponent<Text>().text = "YOU WON!!";
             //text.SetActive(true);            //テキストをオンにして非表示→表示にする
         }

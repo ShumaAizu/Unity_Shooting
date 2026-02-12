@@ -32,7 +32,7 @@ public class AttackGenerator : MonoBehaviour
             switch (nPattern)
             {
                 case 1:
-                    vector.z += 100.0f;
+                    vector.z += -100.0f;
                     break;
 
                 case 2:
