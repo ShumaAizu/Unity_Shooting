@@ -28,8 +28,9 @@ public class BossController : MonoBehaviour
             nCntCollisionBoss++;
 
             Destroy(other.gameObject);
+            Debug.Log("BossEnd");
 
-            if(nCntCollisionBoss >= 2)
+            if (nCntCollisionBoss >= 2)
             {
                 isEndBoss = true;
             }
