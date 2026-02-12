@@ -37,7 +37,7 @@ public class GoalManager : MonoBehaviour
                         break;
 
                     default:
-                        SceneManager.LoadScene("SomaTest");
+                        SceneManager.LoadScene("24_Scene");
                         isGoal = false;     //Goal判定をfalseにする
                         break;
                 }     
@@ -60,9 +60,21 @@ public class GoalManager : MonoBehaviour
     {
         //当たってきたオブジェクトの名前がプレイヤーの名前と同じとき
         if (other.name == player.name && isGoal == false)
-        {
-            //テキストの内容を変更する
-            text.GetComponent<Text>().text = "ゴール！";
+        { //テキストの内容を変更する
+            switch (SceneManager.GetActiveScene().name)
+            {
+                case "24_Scene":   // 24_Sceneの場合
+                    text.GetComponent<Text>().text = "TUTORIAL CLEAR";
+                    break;
+
+                case "26_Scene":  // 26_Sceneの場合
+                    text.GetComponent<Text>().text = "GAME CLEAR";
+                    break;
+
+                default:
+                    text.GetComponent<Text>().text = "ERROR\nCLICK TO RETURN";
+                    break;
+            }
             text.SetActive(true);            //テキストをオンにして非表示→表示にする
             isGoal = true;            //Goal判定をTrueにする
         }

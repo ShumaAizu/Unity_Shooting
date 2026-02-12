@@ -31,8 +31,8 @@ public class CharacterControls : MonoBehaviour {
 	public GameObject BulletPrefab;
 	public GameObject player;
 
-	//public GoalManager goalmanager;
-	//private bool bGoal = false;
+	public GoalManager goalmanager;
+	private bool bGoal = false;
 
 	void  Start ()
 	{
@@ -154,7 +154,10 @@ public class CharacterControls : MonoBehaviour {
 		}
 
 		// 弾の発射処理
-		if (Input.GetMouseButtonDown(0))
+		// ゴールした場合、弾の発射処理を行わない
+		bool isGoal = goalmanager.GetIsGameState();
+
+		if (isGoal == false && Input.GetMouseButtonDown(0))
 		{
 			Vector3 bulletPos = this.transform.position + this.transform.forward * 1.5f;	// 前方から弾を発射
 			GameObject bullet = Instantiate(BulletPrefab, bulletPos, Quaternion.identity);
@@ -162,14 +165,6 @@ public class CharacterControls : MonoBehaviour {
 			Vector3 worldDir = ray.direction;
 			bullet.GetComponent<BulletController>().Shoot(worldDir * bulletSpeed);
 		}
-
-		//// ゴールした場合、パーティクルを表示
-		//bool isGoal = goalmanager.GetIsGameState();
-		//if (isGoal == true && bGoal == false)
-		//{
-		//	GetComponent<ParticleSystem>().Play();
-		//}
-		//bGoal = isGoal;
 	}
 
 	float CalculateJumpVerticalSpeed () 

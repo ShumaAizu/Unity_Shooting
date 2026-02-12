@@ -360,6 +360,7 @@ MonoBehaviour:
   checkPoint: {x: 0, y: 0, z: 0}
   BulletPrefab: {fileID: 8926475286777732985, guid: 90187ebafce30834397fc998cc711a97, type: 3}
   player: {fileID: 131281270}
+  goalmanager: {fileID: 1930158434}
 --- !u!136 &131281277
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -917,7 +918,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: new text
+  m_Text: 'ERROR
+
+    CLICK TO RETURN'
 --- !u!222 &1670514600
 CanvasRenderer:
   m_ObjectHideFlags: 0
