@@ -40,6 +40,11 @@ public class GoalManager : MonoBehaviour
                         isGoal = false;     //Goal判定をfalseにする
                         break;
 
+                    case "26_Scene":   // 24_Sceneの場合
+                        SceneManager.LoadScene("24_Scene");
+                        isGoal = false;     //Goal判定をfalseにする
+                        break;
+
                     default:
                         SceneManager.LoadScene("24_Scene");
                         isGoal = false;     //Goal判定をfalseにする
@@ -77,9 +82,9 @@ public class GoalManager : MonoBehaviour
                     text.SetActive(true);            //テキストをオンにして非表示→表示にする
                     break;
 
-               // case "26_Scene":  // 26_Sceneの場合
-               //     text.GetComponent<Text>().text = "GAME CLEAR";
-               //     break;
+               case "26_Scene":  // 26_Sceneの場合
+                   text.GetComponent<Text>().text = "GAME CLEAR";
+                   break;
 
                 default:
                     text.GetComponent<Text>().text = "YOU REACHED\nTHE GOAL!";
