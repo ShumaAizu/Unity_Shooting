@@ -33,21 +33,20 @@ public class GoalManager : MonoBehaviour
             //Goal‚µ‚½Œã‚Å‰æ–Ê‚ğƒNƒŠƒbƒN‚³‚ê‚½‚Æ‚«
             if (isGoal && Input.GetMouseButton(0))
             {
+                isGoal = false;     //Goal”»’è‚ğfalse‚É‚·‚é
+
                 switch (SceneManager.GetActiveScene().name)
                 {
                     case "24_Scene":   // 24_Scene‚Ìê‡
                         SceneManager.LoadScene("26_Scene");
-                        isGoal = false;     //Goal”»’è‚ğfalse‚É‚·‚é
                         break;
 
                     case "26_Scene":   // 24_Scene‚Ìê‡
                         SceneManager.LoadScene("24_Scene");
-                        isGoal = false;     //Goal”»’è‚ğfalse‚É‚·‚é
                         break;
 
                     default:
                         SceneManager.LoadScene("24_Scene");
-                        isGoal = false;     //Goal”»’è‚ğfalse‚É‚·‚é
                         break;
                 }
             }
