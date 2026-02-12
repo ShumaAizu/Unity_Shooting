@@ -187,6 +187,7 @@ public class CharacterControls : MonoBehaviour {
 	public void LoadCheckPoint()
 	{
 		transform.position = checkPoint;
+		GetComponent<ParticleSystem>().Play();
 	}
 
 	private IEnumerator Decrease(float value, float duration)
