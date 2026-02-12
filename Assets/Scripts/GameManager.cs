@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public BossController bosscontroller;
+    public GameObject text;         //テキストを格納するための変数
     private bool isDefeat;
 
     // Start is called before the first frame update
@@ -31,6 +33,8 @@ public class GameManager : MonoBehaviour
         }
         if (isDefeat == true && Input.GetMouseButton(0))
         {
+            text.GetComponent<Text>().text = "YOU WIN!!";
+            text.SetActive(true);            //テキストをオンにして非表示→表示にする
             SceneManager.LoadScene("24_Scene");
         }
     }

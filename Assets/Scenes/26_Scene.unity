@@ -684,6 +684,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bosscontroller: {fileID: 2129146056}
+  text: {fileID: 1335921716}
 --- !u!4 &174369754
 Transform:
   m_ObjectHideFlags: 0
