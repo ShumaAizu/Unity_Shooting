@@ -5,6 +5,7 @@ using UnityEngine;
 public class BossController : MonoBehaviour
 {
     private bool isEndBoss = false;
+    public GameObject text;         //テキストを格納するための変数
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,8 @@ public class BossController : MonoBehaviour
         if (other.gameObject.tag == "EndObject")
         {
             isEndBoss = true;
+            //text.GetComponent<Text>().text = "YOU WON!!";
+            //text.SetActive(true);            //テキストをオンにして非表示→表示にする
         }
     }
 

@@ -21,8 +21,12 @@ public class GoalManager : MonoBehaviour
 
     void Update()
     {
-        // 敵を倒した状態を取得
-        bool isDefeat = bosscontroller.GetEndBoss();
+        bool isDefeat = false;
+
+        if (SceneManager.GetActiveScene().name == "26_Scene")
+        {        // 敵を倒した状態を取得
+            isDefeat = bosscontroller.GetEndBoss();
+        }
 
         // 画面遷移処理
         {
@@ -70,6 +74,7 @@ public class GoalManager : MonoBehaviour
             {
                 case "24_Scene":   // 24_Sceneの場合
                     text.GetComponent<Text>().text = "TUTORIAL CLEAR";
+                    text.SetActive(true);            //テキストをオンにして非表示→表示にする
                     break;
 
                // case "26_Scene":  // 26_Sceneの場合
@@ -78,9 +83,9 @@ public class GoalManager : MonoBehaviour
 
                 default:
                     text.GetComponent<Text>().text = "ERROR\nCLICK TO RETURN";
+                    text.SetActive(true);            //テキストをオンにして非表示→表示にする
                     break;
             }
-            text.SetActive(true);            //テキストをオンにして非表示→表示にする
             isGoal = true;            //Goal判定をTrueにする
         }
     }
