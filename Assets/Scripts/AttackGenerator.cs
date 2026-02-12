@@ -6,6 +6,8 @@ public class AttackGenerator : MonoBehaviour
 {
     public GameObject AttackPrefab;     // UŒ‚”»’èƒvƒŒƒnƒu
 
+    private static int nCntCool = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +17,14 @@ public class AttackGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.F))
+        if(nCntCool < 0)
+        {
+            nCntCool = Random.Range(60, 180);
+        }
+
+        nCntCool--;
+
+        if(nCntCool < 0)
         {
             int nPattern = Random.Range(1, 4);
             Vector3 vector = this.transform.position;
