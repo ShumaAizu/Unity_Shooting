@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossController : MonoBehaviour
 {
-    private bool isEndBoss = false;
+    private static bool isEndBoss = false;
     public GameObject text;         //テキストを格納するための変数
 
     private static int nCntCollisionBoss = 0;
@@ -32,6 +32,29 @@ public class BossController : MonoBehaviour
 
             if (nCntCollisionBoss >= 2)
             {
+                isEndBoss = true;
+            }
+
+            //text.GetComponent<Text>().text = "YOU WON!!";
+            //text.SetActive(true);            //テキストをオンにして非表示→表示にする
+        }
+    }
+
+    void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.tag == "EndObject")
+        {
+            nCntCollisionBoss++;
+
+            Destroy(col.gameObject);
+            Debug.Log("BossEnd");
+
+            if (nCntCollisionBoss >= 2)
+            {
+                Debug.Log("BossEndtrue");
+
+                Destroy(this.gameObject);
+
                 isEndBoss = true;
             }
 
