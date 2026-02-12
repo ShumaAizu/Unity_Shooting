@@ -11,6 +11,7 @@ public class FollowCamera : MonoBehaviour
     void Start()
     {
         offset = transform.position - player.transform.position;
+        Cursor.visible = true;
     }
 
     // Update is called once per frame
