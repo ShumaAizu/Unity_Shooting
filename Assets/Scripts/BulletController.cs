@@ -9,6 +9,8 @@ public class BulletController : MonoBehaviour
     //    GetComponent<Rigidbody>().AddForce(dir);
     //}
 
+    public int nBLife = 10;  // Žõ–½
+
     public void Shoot(Vector3 dir)
     {
         GetComponent<Rigidbody>().AddForce(dir);
@@ -31,6 +33,10 @@ public class BulletController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        nBLife--;
+        if (nBLife < 0)
+        {
+            Destroy(this.gameObject, 1f);
+        }
     }
 }
