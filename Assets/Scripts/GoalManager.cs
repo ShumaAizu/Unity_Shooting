@@ -21,57 +21,27 @@ public class GoalManager : MonoBehaviour
     {
         // 画面遷移処理
         {
-            ////Goalした後で画面をクリックされたとき
-            //if (isGoal && Input.GetMouseButton(0))
-            //{
-            //    //Restart();
-            //
-            //    if (Input.GetMouseButtonDown(0))    // クリック時
-            //    {
-            //        switch (SceneManager.GetActiveScene().name)
-            //        {
-            //            case "HiyoriTest":   // HiyoriTestの場合
-            //                SceneManager.LoadScene("SomaTest");
-            //                isGoal = false;     //Goal判定をfalseにする
-            //                break;
-            //
-            //            case "SomaTest":  // SomaTestの場合
-            //                SceneManager.LoadScene("HayatoTest");
-            //                isGoal = false;     //Goal判定をfalseにする
-            //                break;
-            //
-            //            case "HayatoTest":  // HayatoTestの場合
-            //                SceneManager.LoadScene("AkitoTest");
-            //                isGoal = false;     //Goal判定をfalseにする
-            //                break;
-            //
-            //            case "AkitoTest":  // AkitoTestの場合
-            //                SceneManager.LoadScene("ShumaTest");
-            //                isGoal = false;     //Goal判定をfalseにする
-            //                break;
-            //
-            //            case "ShumaTest":  // ShumaTestの場合
-            //                SceneManager.LoadScene("KairiTest");
-            //                isGoal = false;     //Goal判定をfalseにする
-            //                break;
-            //
-            //            case "KairiTest":  // KairiTestの場合
-            //                text.GetComponent<Text>().text = "全てのステージをクリアしました！！";
-            //                text.SetActive(true);            //テキストをオンにして非表示→表示にする
-            //                break;
-            //
-            //
-            //                //AkitoTest
-            //                //HayatoTest
-            //                //HiyoriTest
-            //                //KairiTest
-            //                //ShumaTest
-            //                //SomaTest
-            //        }
-            //
-            //    }
-            //}
-            //
+            //Goalした後で画面をクリックされたとき
+            if (isGoal && Input.GetMouseButton(0))
+            {
+                switch (SceneManager.GetActiveScene().name)
+                {
+                    case "24_Scene":   // 24_Sceneの場合
+                        SceneManager.LoadScene("26_Scene");
+                        isGoal = false;     //Goal判定をfalseにする
+                        break;
+
+                    case "26_Scene":  // 26_Sceneの場合
+                        SceneManager.LoadScene("24_Scene");
+                        isGoal = false;     //Goal判定をfalseにする
+                        break;
+
+                    default:
+                        SceneManager.LoadScene("SomaTest");
+                        isGoal = false;     //Goal判定をfalseにする
+                        break;
+                }     
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Escape) == true)   // ESCキーでゲームを終了
