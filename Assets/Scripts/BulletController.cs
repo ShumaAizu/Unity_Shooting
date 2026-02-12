@@ -21,7 +21,7 @@ public class BulletController : MonoBehaviour
         GetComponent<Rigidbody>().isKinematic = true;
         //GetComponent<ParticleSystem>().Play();
         // Player‚Å‚ ‚ê‚Î©•ª©g‚ğ2•bŒã‚Éíœ
-        Destroy(this.gameObject, 1f);
+        Destroy(this.gameObject);
     }
 
     // Start is called before the first frame update
