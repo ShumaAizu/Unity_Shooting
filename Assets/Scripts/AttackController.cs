@@ -15,7 +15,7 @@ public class AttackController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.Translate(new Vector3(0.0f, 0.0f, 0.25f));
+        this.transform.Translate(new Vector3(1.0f, 0.0f, 0.0f));
     }
 
     // “–‚½‚Á‚½‚ç
