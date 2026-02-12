@@ -477,7 +477,7 @@ GameObject:
   - component: {fileID: 98758807}
   m_Layer: 0
   m_Name: Container (1)
-  m_TagString: Untagged
+  m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1329,7 +1329,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 512894580328638218, guid: dcf996f02ae843243871a354eefcb6c8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -74.3
       objectReference: {fileID: 0}
     - target: {fileID: 512894580328638218, guid: dcf996f02ae843243871a354eefcb6c8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1480,7 +1480,7 @@ GameObject:
   - component: {fileID: 751667264}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
