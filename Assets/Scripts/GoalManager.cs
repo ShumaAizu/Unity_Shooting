@@ -82,7 +82,7 @@ public class GoalManager : MonoBehaviour
                //     break;
 
                 default:
-                    text.GetComponent<Text>().text = "ERROR\nCLICK TO RETURN";
+                    text.GetComponent<Text>().text = "YOU REACHED\nTHE GOAL!";
                     text.SetActive(true);            //テキストをオンにして非表示→表示にする
                     break;
             }
