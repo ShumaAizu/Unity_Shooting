@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossController : MonoBehaviour
 {
-
+    private bool isEndBoss = false;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +22,12 @@ public class BossController : MonoBehaviour
     {
         if (other.gameObject.tag == "EndObject")
         {
-            Destroy(this.gameObject);
+            isEndBoss = true;
         }
+    }
+
+    public bool GetEndBoss()
+    {
+        return isEndBoss;
     }
 }
