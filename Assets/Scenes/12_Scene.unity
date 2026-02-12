@@ -519,6 +519,10 @@ PrefabInstance:
       propertyPath: goalmanager
       value: 
       objectReference: {fileID: 1367331530}
+    - target: {fileID: 1366193777772827175, guid: dcf996f02ae843243871a354eefcb6c8, type: 3}
+      propertyPath: bulletDistance
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 6219728284377223032, guid: dcf996f02ae843243871a354eefcb6c8, type: 3}
       propertyPath: m_Name
       value: player

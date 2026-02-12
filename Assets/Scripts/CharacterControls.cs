@@ -160,7 +160,7 @@ public class CharacterControls : MonoBehaviour {
 
 		if (isGoal == false && Input.GetMouseButtonDown(0))
 		{
-			Vector3 bulletPos = this.transform.position + this.transform.forward * bulletDistance;	// 前方から弾を発射
+			Vector3 bulletPos = this.transform.position + this.transform.forward * bulletDistance;  // 前方から弾を発射
 			GameObject bullet = Instantiate(BulletPrefab, bulletPos, Quaternion.identity);
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			Vector3 worldDir = ray.direction;

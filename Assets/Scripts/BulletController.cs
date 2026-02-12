@@ -17,7 +17,7 @@ public class BulletController : MonoBehaviour
     void OnCollisionEnter(Collision other)
     {
         GetComponent<Rigidbody>().isKinematic = true;
-        GetComponent<ParticleSystem>().Play();
+        //GetComponent<ParticleSystem>().Play();
         // Player‚Å‚ ‚ê‚Î©•ª©g‚ğ2•bŒã‚Éíœ
         Destroy(this.gameObject, 1f);
     }
