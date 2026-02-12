@@ -29,9 +29,9 @@ public class AttackController : MonoBehaviour
 
         if (other.gameObject.tag == "Object")
         {
+            Destroy(gameObject);
             Debug.Log("test");
         }
-        Destroy(gameObject);
     }
 
     //private void OnTriggerEnter(Collider other)

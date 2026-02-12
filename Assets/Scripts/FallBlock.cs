@@ -24,6 +24,7 @@ public class FallBlock : MonoBehaviour
         {
             Debug.Log("test");
             Block.GetComponent<Rigidbody>().useGravity = true;
+            Block.GetComponent<Rigidbody>().isKinematic = false;
         }
     }
 }
