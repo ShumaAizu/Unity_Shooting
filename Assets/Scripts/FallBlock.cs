@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FallBlock : MonoBehaviour
 {
+    public GameObject Block;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +16,14 @@ public class FallBlock : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Bullet")
+        {
+            Debug.Log("test");
+            Block.GetComponent<Rigidbody>().useGravity = true;
+        }
     }
 }
