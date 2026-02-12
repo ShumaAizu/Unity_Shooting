@@ -84,6 +84,7 @@ public class GoalManager : MonoBehaviour
 
                case "26_Scene":  // 26_Sceneの場合
                    text.GetComponent<Text>().text = "GAME CLEAR";
+                   text.SetActive(true);            //テキストをオンにして非表示→表示にする
                    break;
 
                 default:

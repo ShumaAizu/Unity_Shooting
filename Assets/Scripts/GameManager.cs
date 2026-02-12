@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
         {
             Application.Quit();
         }
-        if (SceneManager.GetActiveScene().name == "26_Scene" && isDefeat == true && Input.GetMouseButton(0))
+        if (isDefeat == true && Input.GetMouseButton(0))
         {
             SceneManager.LoadScene("24_Scene");
         }
